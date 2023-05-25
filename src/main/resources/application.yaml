@@ -1,0 +1,55 @@
+#端口号
+server:
+  port: 8083
+spring:
+  application:
+    #服务名称
+    name: reggie_take_out
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/rugie_take?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: 5436205
+  redis:
+    password: 888888
+    host: 192.168.121.137
+    port: 6380
+    database: 0
+    jedis:
+      pool:
+        min-idle: 0
+        max-idle: 4
+        max-wait: 1ms
+        max-active: 8
+  mail:
+    # 配置 SMTP 服务器地址
+    host: smtp.qq.com
+    # 发送者邮箱
+    username: 1126556181@qq.com
+    # 配置密码，注意不是真正的密码，而是刚刚申请到的授权码
+    password: dzpjazshvnhzjjfa
+    # 端口号465或587
+    port: 587
+    # 默认的邮件编码为UTF-8
+    default-encoding: UTF-8
+    # 配置SSL 加密工厂
+    properties:
+      mail:
+        smtp:
+          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+        #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+        debug: true
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #主键策略：ASSIGN_ID（雪花算法）
+      id-type: ASSIGN_ID
+reggie:
+  path: D:\img\
+
+
